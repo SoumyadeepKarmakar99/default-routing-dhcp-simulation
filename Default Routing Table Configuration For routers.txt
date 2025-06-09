@@ -1,0 +1,18 @@
+ 			Default Routing Configuration For routers
+
+Kolkata(Router 1):
+
+kolkata(config)#ip route 0.0.0.0 0.0.0.0 200.20.10.2
+kolkata(config)#dr
+
+Mumbai(Router 2):
+
+mumbai(config)#ip route 0.0.0.0 0.0.0.0 200.20.10.1
+mumbai(config)#ip route 0.0.0.0 0.0.0.0 200.20.20.2
+mumbai(config)#do wr
+
+
+Delhi(Router 3):
+
+delhi(config)#ip route 0.0.0.0 0.0.0.0 200.20.20.1
+delhi(config)#do wr

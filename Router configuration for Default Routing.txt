@@ -1,0 +1,87 @@
+		Router configuration for Default Routing with DHCP route
+
+
+Kolkata(Router 1):
+
+Router(config)#hostname kolkata
+kolkata(config)#do wr
+
+kolkata(config)#int se0/1/0
+kolkata(config-if)#ip add 200.20.10.1 255.255.255.0
+kolkata(config-if)#no sh
+kolkata(config-if)#do wr
+kolkata(config-if)#exit
+
+kolkata(config)#int gig0/0/0
+kolkata(config-if)#ip add 192.168.10.1 255.255.255.0
+kolkata(config-if)#no sh
+kolkata(config-if)#do wr
+kolkata(config-if)#exit
+
+kolkata(config)#ip dhcp pool kolkatapool
+kolkata(dhcp-config)#network 192.168.10.0 255.255.255.0
+kolkata(dhcp-config)#default-router 192.168.10.1
+kolkata(dhcp-config)#do wr
+kolkata(dhcp-config)#exit
+
+
+
+Mumbai(Router 2):
+
+Router(config)#hostname mumbai
+mumbai(config)#do wr
+
+mumbai(config)#int se0/1/0
+mumbai(config-if)#ip add 200.20.10.2 255.255.255.0
+mumbai(config-if)#no sh
+mumbai(config-if)#do wr
+mumbai(config-if)#exit
+
+mumbai(config)#int se0/1/1
+mumbai(config-if)#ip add 200.20.20.1 255.255.255.0
+mumbai(config-if)#no sh
+mumbai(config-if)#do wr
+mumbai(config-if)#exit
+
+mumbai(config)#int gig0/0/0
+mumbai(config-if)#ip add 192.168.20.1 255.255.255.0
+mumbai(config-if)#no sh
+mumbai(config-if)#do wr
+mumbai(config-if)#exit
+
+mumbai(config)#ip dhcp pool mumbaipool
+mumbai(dhcp-config)#network 192.168.20.0 255.255.255.0
+mumbai(dhcp-config)#default-router 192.168.20.1
+mumbai(dhcp-config)#do wr
+
+
+
+Delhi(Router 3):
+
+Router(config)#hostname delhi
+delhi(config)#do wr
+
+Router(config)#int se0/1/0
+Router(config-if)#ip add 200.20.20.2 255.255.255.0
+Router(config-if)#no sh
+Router(config-if)#do wr
+Router(config-if)#exit
+	
+Router(config)#int gig0/0/0
+Router(config-if)#ip add 192.168.30.1 255.255.255.0
+Router(config-if)#no sh
+Router(config-if)#do wr
+Router(config-if)#exit
+
+Router(config)#ip dhcp pool delhipool
+Router(dhcp-config)#network 192.168.30.0 255.255.255.0
+Router(dhcp-config)#default-router 192.168.30.1
+Router(dhcp-config)#do wr
+Router(dhcp-config)#exit
+
+
+
+
+
+
+
